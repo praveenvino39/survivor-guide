@@ -40,7 +40,7 @@ router.post("/create", upload.single('image'), async (req, res) => {
     const weapon = WeaponModel(req.body)
     weapon.image = req.file.path
     weapon.save()
-    res.redirect('http://localhost:3000/');
+    res.redirect('');
 })
 
 

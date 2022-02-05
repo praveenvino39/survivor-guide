@@ -28,7 +28,7 @@ app.use("/uploads",express.static("uploads"))
 app.get('/',async (req, res) =>{
     const weaponCategory = await WeaponseCategoryModel.find()
     const weapons = await WeaponModel.find().populate("category")
-    return res.render("index.html", {weaponCategory: weaponCategory, weapons: weapons})
+    return res.render("index.html", {weaponCategory: weaponCategory, weapons: weapons, hostname:  req.headers.host})
 });
 
 
