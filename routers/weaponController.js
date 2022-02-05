@@ -12,6 +12,7 @@ const path = require('path')
 
 
 
+
 router.get("/", async (req, res) => {
     const weapons = await WeaponModel.find().populate("category", "-__v -weapons")
     res.status(200).json(weapons)
@@ -35,7 +36,7 @@ router.get("/category/:id", async (req, res) => {
 
 
 
-router.post("/create", async (req, res) => {
+router.post("/create", upload.single('image'), async (req, res) => {
     const weapon = WeaponModel(req.body)
     weapon.image = req.file.path
     weapon.save()
