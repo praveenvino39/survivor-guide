@@ -8,6 +8,7 @@ const  nunjucks = require('nunjucks');
 const { log } = require("console");
 const { Schema } = require("mongoose");
 const weaponController = require('./routers/weaponController')
+const http = require('http')
 
 
 
@@ -35,6 +36,13 @@ app.get('/',async (req, res) =>{
 app.use("/weapon", weaponController)
 
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 1000, () => {
+    setInterval(()=>{
+          http.request("http://still-springs-73303.herokuapp.com", function(res) {
+            res.on('data', function (chunk) {
+              console.log('BODY: ' + chunk);
+            });
+          }).end();
+    },5000)
     console.log("server is running")
 });
