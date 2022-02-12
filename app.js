@@ -37,12 +37,12 @@ app.use("/weapon", weaponController)
 
 
 app.listen(process.env.PORT || 1000, () => {
-    setInterval(()=>{
-          http.request("http://still-springs-73303.herokuapp.com", function(res) {
-            res.on('data', function (chunk) {
-              console.log('BODY: ' + chunk);
-            });
-          }).end();
-    },5000)
+    // setInterval(()=>{
+    //       http.request("http://still-springs-73303.herokuapp.com", function(res) {
+    //         res.on('data', function (chunk) {
+    //           console.log('BODY: ' + chunk);
+    //         });
+    //       }).end();
+    // },5000)
     console.log("server is running")
 });

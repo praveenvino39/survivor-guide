@@ -8,6 +8,7 @@ const WeaponSchema = Schema({
     image: String,
     ammoType: String,
     hitDamage: Number,
+    weapons: [{ type: Schema.Types.ObjectId, ref: 'Weapon' }],
     timeBetween: String,
     firingModes: [{type: String}],
     method:String,
@@ -17,6 +18,7 @@ const WeaponSchema = Schema({
     extended: Number,
     capacity: Number,
     attachment: Number,
+    sounds: [{ type: Schema.Types.ObjectId, ref: 'Sound' }]
 });
 let WeaponModel = mongoose.model("Weapon", WeaponSchema);
 
